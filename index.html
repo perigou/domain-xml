@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example Webpage</title>
+</head>
+<body>
+    <h1>Welcome to my example webpage!</h1>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://photos.fife.usercontent.google.com/crossdomain.xml', true);
+        xhr.onload = function() {
+            console.log(xhr.responseText);
+        };
+        xhr.send();
+    </script>
+</body>
+</html>
